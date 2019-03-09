@@ -1,0 +1,5 @@
+[ gitconfig ]
+fileType         = source.git-config
+
+[ editorconfig ]
+fileType         = source.tm-properties

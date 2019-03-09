@@ -1,0 +1,15 @@
+encoding           = 'UTF-8'
+fontName           = 'SourceCodePro-Regular'
+fontSize           = 12
+includeDirectories = '{*,.circleci,.config,.github}'
+includeFiles       = '{*,.codecov.yml,.editorconfig,.gitattributes,.gitignore,.htaccess,.tm_properties,.travis.yml}'
+showIndentGuides   = false
+showWrapColumn     = false
+softTabs           = true
+softWrap           = true
+tabSize            = 2
+theme              = '38E819D9-AE02-452F-9231-ECC3B204AFD7'
+wrapColumn         = 0
+
+[ source.git-config ]
+softTabs         = false

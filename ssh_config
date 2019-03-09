@@ -1,0 +1,77 @@
+Host obsidian
+User jason
+
+Host calcite0 calcite2
+User jason
+IdentityFile ~/.ssh/id_rsa
+Ciphers aes256-ctr
+MACs hmac-sha1
+
+Host carbide
+User jason
+
+# -- github-keygen - begin --
+# Version: 1.304
+
+Host gist.github.com *.gist.github.com
+HostName gist.github.com
+
+# See https://help.github.com/articles/using-ssh-over-the-https-port
+Host ssh.github.com *.ssh.github.com 443.github.com *.443.github.com
+HostName ssh.github.com
+Port 443
+
+# This rule must stay below more specific host rules to avoid
+# "HostName" to be set to github.com
+Host *.github.com
+HostName github.com
+
+Host github.com gist.github.com ssh.github.com 443.github.com *.github.com *.gist.github.com *.ssh.github.com *.443.github.com
+User git
+# Enforce host checks
+StrictHostKeyChecking yes
+UserKnownHostsFile ~/.ssh/known_hosts_github
+# GitHub has not yet (2011-05) implemented SSHFP (RFC 4255)
+VerifyHostKeyDNS no
+# Limit connection sharing to 60s
+ControlPersist 60s
+
+Host jasonmp85.github.com jasonmp85.gist.github.com jasonmp85.ssh.github.com jasonmp85.443.github.com github.com gist.github.com ssh.github.com 443.github.com
+IdentityFile ~/.ssh/id_jasonmp85@github.com
+
+# -- github-keygen - end --
+
+# https://github.com/drduh/config/blob/master/ssh_config
+Host *
+Protocol 2
+Compression no
+IdentitiesOnly yes
+IdentityFile ~/.ssh/id_ed25519
+UseRoaming no
+# Hosts added later (identified by IP) will be hashed
+HashKnownHosts yes
+VisualHostKey yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+StrictHostKeyChecking ask
+VerifyHostKeyDNS yes
+# Enable only the required authentication
+PubkeyAuthentication yes
+PreferredAuthentications publickey
+ForwardAgent no
+PermitLocalCommand no
+# Trust no one, especially the remote
+ForwardX11 no
+ForwardX11Trusted no
+# Share connections for ten minutes
+ControlMaster auto
+ControlPath ~/.ssh/control-sockets/%r@%h:%p
+ControlPersist 600
+ServerAliveInterval 300
+ServerAliveCountMax 2
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ssh-rsa
+AddKeysToAgent yes
+UseKeychain yes

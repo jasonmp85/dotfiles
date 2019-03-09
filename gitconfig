@@ -1,0 +1,72 @@
+[user]
+	name = Jason Petersen
+	email = Jason.Petersen@microsoft.com
+	useconfigonly = true
+
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	whitespace = tabwidth=4
+
+[color]
+	ui = true
+
+[color "diff-highlight"]
+	oldnormal = red bold
+	oldhighlight = red bold 52
+	newnormal = green bold
+	newhighlight = green bold 22
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[log]
+	date = local
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[alias]
+	pushf = push --force-with-lease
+
+[rebase]
+	autosquash = true
+
+[protocol]
+	version = 2
+
+[push]
+	default = upstream
+
+[interactive]
+	singlekey = true
+
+[tag]
+	sort = version:refname
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+
+[merge]
+	tool = Kaleidoscope
+	conflictstyle = diff3
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
+
+[diff]
+	tool = Kaleidoscope
