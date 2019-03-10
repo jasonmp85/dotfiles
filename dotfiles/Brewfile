@@ -79,6 +79,9 @@ cask 'ring'
 cask 'signal'
 cask 'textmate'
 
+tap 'homebrew/cask-drivers'
+cask 'logitech-options'
+
 tap 'homebrew/cask-fonts'
 
 cask 'font-source-code-pro'

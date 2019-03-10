@@ -110,3 +110,6 @@ tmtags
 
 # excluding bin is overzealous, IMO
 !bin/
+
+# I configure Eclipse CDT to put VPATH builds in this subdir
+.eclipse-builds/
