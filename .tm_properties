@@ -1,5 +1,14 @@
-[ gitconfig ]
+[ {gitconfig,gitignore} ]
 fileType         = source.git-config
 
-[ editorconfig ]
+[ {editorconfig,tm_properties} ]
 fileType         = source.tm-properties
+
+[ {antigenrc,editrc,secrets,zprofile,zshenv,zshrc} ]
+fileType         = source.shell
+
+[ *.terminal ]
+fileType         = text.xml.plist
+
+[ ssh_config ]
+fileType         = source.ssh-config

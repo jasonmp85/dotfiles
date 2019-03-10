@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+basedir="$(git rev-parse --show-toplevel)"
+dfdir="${basedir}/dotfiles"
+
+>&2 echo "==> Linking dotfiles..."
+
+for dotfile in $(git -C ${dfdir} ls-files); do
+  dotdir="$(dirname "${dotfile}")"
+
+  # TODO: copy permissions of dirname in git repo
+  if [ "${dotdir}" != "." ]; then
+    mkdir -p "${HOME}/.${dotdir}"
+  fi
+
+  ln -sf "${dfdir}/${dotfile}" "${HOME}/.${dotfile}"
+done
+
+>&2 echo "==> Dotfiles linked!"

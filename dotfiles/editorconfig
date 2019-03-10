@@ -21,6 +21,17 @@ trim_trailing_whitespace = false
 [*.py]
 indent_size = 4
 
+# Make _requires_ tabs
 [{GNUmakefile,GNUmakefile.*,Makefile,Makefile.*,*.mk,}]
 indent_style = tab
 indent_size = 4
+
+# git-config --add uses tabs; Linus insists they are eight-wide
+[.gitconfig]
+indent_style = tab
+indent_size = 8
+
+# plutil -convert xml1 outputs tabs
+[{.plist,.terminal}]
+indent_style = tab
+indent_size  = 4

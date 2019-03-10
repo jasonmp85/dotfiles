@@ -1,0 +1,27 @@
+# display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+source "$(brew --prefix)/share/antigen/antigen.zsh"
+
+antigen init ~/.antigenrc
+
+# Dir: current working directory
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG "$(shrink_path -f)"
+}
+
+#
+# Variables
+#
+
+# Load standard Homebrew shellenv into the shell session.
+# Load 'HOMEBREW_' prefixed variables only. Avoid loading 'PATH' related
+# variables as they are already handled in standard zsh configuration.
+if (( $+commands[brew] )); then
+  eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
+fi
+
+# TODO: find a way to make this dynamic
+export MANPATH="${HOMEBREW_PREFIX}/opt/postgresql@11/share/man:${MANPATH}"
+
+source ~/.config/secrets

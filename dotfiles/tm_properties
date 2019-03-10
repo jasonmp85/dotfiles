@@ -11,5 +11,12 @@ tabSize            = 2
 theme              = '38E819D9-AE02-452F-9231-ECC3B204AFD7'
 wrapColumn         = 0
 
+[ Brewfile ]
+fileType         = source.ruby.gemfile
+
+[ psqlrc ]
+fileType         = source.sql
+
 [ source.git-config ]
 softTabs         = false
+tabSize          = 8

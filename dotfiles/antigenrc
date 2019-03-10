@@ -1,0 +1,64 @@
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# disabled until I'm actively using these pieces of software
+# antigen bundle ansible
+# antigen bundle battery
+# antigen bundle bgnotify
+# antigen bundle bundler
+# antigen bundle chruby
+# antigen bundle colored-man-pages
+# antigen bundle common-aliases
+# antigen bundle dash
+# antigen bundle dotenv
+# antigen bundle emoji
+# antigen bundle extract
+# antigen bundle gem
+# antigen bundle git
+# antigen bundle git-extras
+# antigen bundle globalias
+# antigen bundle history-substring-search
+# antigen bundle httpie
+# antigen bundle jsontools
+# antigen bundle mosh
+# antigen bundle pip
+# antigen bundle screen
+# antigen bundle virtualenv
+# antigen bundle wakeonlan
+
+antigen bundles <<EOBUNDLES
+  brew
+  colored-man-pages
+  command-not-found
+  common-aliases
+  docker
+  docker-compose
+  fzf
+  git-auto-fetch
+  git-prompt
+  github
+  gitignore
+  man
+  osx
+  shrink-path
+  textmate
+  thefuck
+  urltools
+  web-search
+  z
+  zsh-navigation-tools
+
+  andrewferrier/fzf-z
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-completions
+
+  # the following must be last, and must be in this order
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
+EOBUNDLES
+
+# Load the theme.
+antigen theme agnoster
+
+# Tell Antigen that you're done.
+antigen apply

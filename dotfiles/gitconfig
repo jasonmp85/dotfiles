@@ -6,7 +6,7 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less -+x1,5
 	whitespace = tabwidth=4
 
 [color]
