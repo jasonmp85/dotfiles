@@ -1,14 +1,8 @@
-Host obsidian
-User jason
-
 Host calcite0 calcite2
-User jason
+User device-admin
 IdentityFile ~/.ssh/id_rsa
 Ciphers aes256-ctr
 MACs hmac-sha1
-
-Host carbide
-User jason
 
 # -- github-keygen - begin --
 # Version: 1.304
