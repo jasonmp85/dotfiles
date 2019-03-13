@@ -41,6 +41,9 @@ IdentityFile ~/.ssh/id_jasonmp85@github.com
 
 # -- github-keygen - end --
 
+Match !host *github.com !exec "[ -e ~/.ssh/control-sockets/%r@%h:%p ]"
+RemoteForward 52698 localhost:52698
+
 # https://github.com/drduh/config/blob/master/ssh_config
 Host *
 Protocol 2
