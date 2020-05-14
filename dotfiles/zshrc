@@ -21,7 +21,11 @@ if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
 fi
 
+alias brew='sudo -Hu admin brew'
+
 # TODO: find a way to make this dynamic
 export MANPATH="${HOMEBREW_PREFIX}/opt/postgresql@11/share/man:${MANPATH}"
+
+HOMEBREW_CASK_OPTS='--no-quarantine'
 
 source ~/.config/secrets

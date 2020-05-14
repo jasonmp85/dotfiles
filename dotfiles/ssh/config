@@ -1,3 +1,6 @@
+Host lodestone
+Port 53822
+
 Host calcite0 calcite2
 User device-admin
 IdentityFile ~/.ssh/id_rsa
