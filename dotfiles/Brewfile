@@ -52,20 +52,17 @@ brew 'zsh'
 tap 'petere/postgresql'
 
 brew 'petere/postgresql/postgresql-common'
-brew 'petere/postgresql/postgresql@10', args: ['with-cassert']
 brew 'petere/postgresql/postgresql@11', args: ['with-cassert']
+brew 'petere/postgresql/postgresql@12', args: ['with-cassert']
 
 tap 'homebrew/cask'
 
 cask '1password-cli'
-cask 'adobe-photoshop-lightroom'
-cask 'adobe-photoshop-lightroom600'
 cask 'aerial'
 cask 'cocktail'
 cask 'deckset'
 cask 'docker'
 cask 'eclipse-cpp'
-cask 'encryptme'
 cask 'firefox'
 cask 'focus'
 cask 'gpg-suite'
@@ -92,24 +89,26 @@ cask 'font-source-code-pro-for-powerline'
 mas '1Blocker', id: 1107421413
 mas '1Password 7', id: 1333542190
 mas '24 Hour Wallpaper', id: 1226087575
-mas 'Airmail 3', id: 918858936
+mas 'Adobe Lightroom', id: 1451544217
 mas 'CARROT Weather', id: 993487541
 mas 'CCMenu', id: 603117688
 mas 'Deliveries', id: 924726344
-mas 'Discovery', id: 1381004916
 mas 'GarageBand', id: 682658836
 mas 'GrandPerspective', id: 1111570163
 mas 'iMovie', id: 408981434
-mas 'JustFocus', id: 1142151959
+mas 'Just Focus', id: 1142151959
 mas 'Keynote', id: 409183694
 mas 'Magnet', id: 441258766
+mas 'Microsoft Excel', id: 462058435
+mas 'Microsoft PowerPoint', id: 462062816
 mas 'Microsoft Remote Desktop', id: 1295203466
+mas 'Microsoft Word', id: 462054704
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Pixelmator', id: 407963104
-mas 'Reeder', id: 880001334
-mas 'Screens 4', id: 1224268771
-mas 'Things3', id: 904280696
+mas 'Reeder', id: 1449412482
+mas 'Screens', id: 1224268771
+mas 'Things', id: 904280696
 mas 'Tweetbot', id: 1384080005
 mas 'Xcode', id: 497799835
 
