@@ -1,3 +1,9 @@
+Host lodestone carbide obsidian
+User jason
+
+Host lodestone
+Port 53822
+
 Host calcite0 calcite2
 User device-admin
 IdentityFile ~/.ssh/id_rsa
@@ -35,8 +41,23 @@ IdentityFile ~/.ssh/id_jasonmp85@github.com
 
 # -- github-keygen - end --
 
-Match !host *github.com !exec "[ -e ~/.ssh/control-sockets/%r@%h:%p ]"
-RemoteForward 52698 localhost:52698
+# Match !host *github.com !exec "[ -e ~/.ssh/control-sockets/%C ]"
+# RemoteForward 52698 localhost:52698
+
+# -- lower security for Azure DevOps (?)
+Host ssh.dev.azure.com vs-ssh.visualstudio.com
+User git
+# Enforce host checks
+StrictHostKeyChecking ask
+UserKnownHostsFile ~/.ssh/known_hosts_azure_devops
+IdentityFile ~/.ssh/id_japeter@microsoft.com@dev.azure.com
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
+# Azure DevOps has not yet (2011-05) implemented SSHFP (RFC 4255)
+VerifyHostKeyDNS no
+# Azure DevOps doesn't support connection multiplexing
+ControlMaster no
 
 # https://github.com/drduh/config/blob/master/ssh_config
 Host *
@@ -62,11 +83,11 @@ ForwardX11 no
 ForwardX11Trusted no
 # Share connections for ten minutes
 ControlMaster auto
-ControlPath ~/.ssh/control-sockets/%r@%h:%p
+ControlPath ~/.ssh/control-sockets/%C
 ControlPersist 600
 ServerAliveInterval 300
 ServerAliveCountMax 2
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
 KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
 HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ssh-rsa
