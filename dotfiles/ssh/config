@@ -1,8 +1,8 @@
-Host lodestone carbide obsidian
+Host lodestone carbide obsidian garnet
 User jason
 
 Host lodestone
-Port 53822
+Port 13122
 
 Host calcite0 calcite2
 User device-admin
@@ -31,8 +31,7 @@ User git
 # Enforce host checks
 StrictHostKeyChecking yes
 UserKnownHostsFile ~/.ssh/known_hosts_github
-# GitHub has not yet (2011-05) implemented SSHFP (RFC 4255)
-VerifyHostKeyDNS no
+VerifyHostKeyDNS yes
 # Limit connection sharing to 60s
 ControlPersist 60s
 

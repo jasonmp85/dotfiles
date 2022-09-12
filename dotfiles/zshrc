@@ -1,6 +1,13 @@
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+ZSH_DISABLE_COMPFIX="true"
+ANTIGEN_COMPINIT_OPTS="-u"
+
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+
 source "$(brew --prefix)/share/antigen/antigen.zsh"
 
 antigen init ~/.antigenrc
@@ -21,12 +28,13 @@ if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
 fi
 
+alias mans='groff -Wall -mtty-char -Tascii -mandoc -c | ("${PAGER}" || true)'
 alias ush='ssh -F/dev/null'
 
-# TODO: find a way to make this dynamic
-export MANPATH="${HOMEBREW_PREFIX}/opt/postgresql@12/share/man:${MANPATH}"
-
-HOMEBREW_CASK_OPTS='--no-quarantine'
-
-source /usr/local/opt/chpg/share/chpg.sh
 source ~/.config/secrets-local
+
+autoload -U compinit
+compinit -u
+
+# opam configuration
+[[ ! -r /Users/jason/.opam/opam-init/init.zsh ]] || source /Users/jason/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

@@ -1,103 +1,119 @@
-cask_args appdir: '/Applications'
-
 tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/cask-drivers'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/core'
-
+tap 'homebrew/services'
 brew 'ack'
 brew 'antigen'
+brew 'arping'
 brew 'autoconf'
 brew 'circleci'
 brew 'colormake'
 brew 'cppcheck'
+brew 'csvkit'
 brew 'diff-so-fancy'
 brew 'docker-clean'
 brew 'duti'
 brew 'emojify'
 brew 'fasd'
 brew 'fd'
+brew 'ffmpeg'
 brew 'fortune'
 brew 'fzf'
 brew 'git'
 brew 'git-extras'
 brew 'git-quick-stats'
 brew 'github-keygen'
+brew 'go'
 brew 'hadolint'
 brew 'highlight'
 brew 'htop'
 brew 'httpie'
 brew 'hub'
+brew 'iperf3'
 brew 'jq'
 brew 'lftp'
 brew 'lynis'
 brew 'm-cli'
 brew 'mas'
 brew 'mkcert'
+brew 'mosh'
 brew 'nmap'
+brew 'opam'
+brew 'postgresql@14', restart_service: true
 brew 'pstree'
 brew 'pv'
+brew 'rename'
 brew 'rmate'
+brew 'rsync'
 brew 'ruby-install'
 brew 'shellcheck'
 brew 'shfmt'
+brew 'subversion'
 brew 'terminal-notifier'
 brew 'thefuck'
 brew 'tree'
 brew 'uncrustify'
-brew 'unrar'
+brew 'wakeonlan'
 brew 'watch'
 brew 'watchman'
+brew 'xsv'
+brew 'yt-dlp'
 brew 'z'
 brew 'zsh'
-
-tap 'petere/postgresql'
-
-brew 'petere/postgresql/postgresql-common'
-brew 'petere/postgresql/postgresql@11', args: ['with-cassert']
-brew 'petere/postgresql/postgresql@12', args: ['with-cassert']
-
-tap 'homebrew/cask'
-
 cask '1password-cli'
 cask 'aerial'
+cask 'alfred'
+cask 'backblaze'
+cask 'bartender'
+cask 'cirrus'
 cask 'cocktail'
 cask 'deckset'
+cask 'discord'
 cask 'docker'
 cask 'eclipse-cpp'
+cask 'eqmac'
 cask 'firefox'
 cask 'focus'
-cask 'gpg-suite'
-cask 'intel-power-gadget'
+cask 'font-source-code-pro'
+cask 'font-source-code-pro-for-powerline'
+cask 'handbrake'
+cask 'hdhomerun'
 cask 'istat-menus'
+cask 'jump-desktop-connect'
 cask 'kaleidoscope'
 cask 'keep-it'
 cask 'keepingyouawake'
+cask 'logitech-camera-settings'
+cask 'logitech-options'
+cask 'moonlight'
 cask 'nvalt'
 cask 'oracle-jdk'
-cask 'pokemon-trading-card-game-online'
-cask 'ring'
 cask 'signal'
+cask 'swiftdefaultappsprefpane'
 cask 'textmate'
-
-tap 'homebrew/cask-drivers'
-cask 'logitech-options'
-
-tap 'homebrew/cask-fonts'
-
-cask 'font-source-code-pro'
-cask 'font-source-code-pro-for-powerline'
-
-mas '1Blocker', id: 1107421413
-mas '1Password 7', id: 1333542190
+cask 'thetimemachinemechanic'
+cask 'visual-studio-code'
+cask 'vlc'
+cask 'wireshark'
+mas '1Blocker', id: 1365531024
+mas '1Password for Safari', id: 1569813296
 mas '24 Hour Wallpaper', id: 1226087575
 mas 'Adobe Lightroom', id: 1451544217
-mas 'CARROT Weather', id: 993487541
-mas 'CCMenu', id: 603117688
-mas 'Deliveries', id: 924726344
+mas 'Cardhop', id: 1290358394
+mas 'Data Jar', id: 1453273600
+mas 'Deliveries', id: 290986013
+mas 'Fantastical', id: 975937182
 mas 'GarageBand', id: 682658836
+mas 'GoodNotes', id: 1444383602
 mas 'GrandPerspective', id: 1111570163
+mas 'Grocery', id: 1195676848
+mas 'HomeLog', id: 1584408332
 mas 'iMovie', id: 408981434
 mas 'Just Focus', id: 1142151959
 mas 'Keynote', id: 409183694
+mas 'Logger', id: 1611554653
 mas 'Magnet', id: 441258766
 mas 'Microsoft Excel', id: 462058435
 mas 'Microsoft PowerPoint', id: 462062816
@@ -105,11 +121,11 @@ mas 'Microsoft Remote Desktop', id: 1295203466
 mas 'Microsoft Word', id: 462054704
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
-mas 'Pixelmator', id: 407963104
-mas 'Reeder', id: 1449412482
+mas 'Pixelmator Pro', id: 1289583905
 mas 'Screens', id: 1224268771
+mas 'Shortery', id: 1594183810
+mas 'Speedtest', id: 1153157709
+mas 'Streaks', id: 963034692
 mas 'Things', id: 904280696
 mas 'Tweetbot', id: 1384080005
 mas 'Xcode', id: 497799835
-
-tap 'buo/cask-upgrade'

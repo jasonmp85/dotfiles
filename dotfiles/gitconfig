@@ -1,7 +1,10 @@
 [user]
 	name = Jason Petersen
-	email = Jason.Petersen@microsoft.com
+	email = jason@ptrsn.io
 	useconfigonly = true
+
+[credential]
+	helper = 
 
 [core]
 	autocrlf = input
