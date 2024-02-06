@@ -28,8 +28,13 @@ if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
 fi
 
-alias mans='groff -Wall -mtty-char -Tascii -mandoc -c | ("${PAGER}" || true)'
+manp ()
+{(
+    set -o pipefail;
+    gman -Tpdf "$@" | open -fa Preview
+)}
 alias ush='ssh -F/dev/null'
+alias bb='bbedit'
 
 source ~/.config/secrets-local
 

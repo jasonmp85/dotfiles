@@ -1,5 +1,5 @@
-# Created by https://www.gitignore.io/api/eclipse,textmate,macos
-# Edit at https://www.gitignore.io/?templates=eclipse,textmate,macos
+# Created by https://www.gitignore.io/api/gitignore/api/eclipse,textmate,visualstudiocode,macos
+# Edit at https://www.gitignore.io/?templates=gitignore?templates=eclipse,textmate,visualstudiocode,macos
 
 ### Eclipse ###
 
@@ -53,22 +53,19 @@ local.properties
 
 # Annotation Processing
 .apt_generated/
+.apt_generated_test/
 
 # Scala IDE specific (Scala & Java development for Eclipse)
 .cache-main
 .scala_dependencies
 .worksheet
 
-### Eclipse Patch ###
-# Eclipse Core
+# Uncomment this line if you wish to ignore the project description file.
+# Typically, this file would be tracked if it contains build/dependency configurations:
 .project
 
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-
-# Annotation Processing
-.apt_generated
-
+### Eclipse Patch ###
+# Spring Boot Tooling
 .sts4-cache/
 
 ### macOS ###
@@ -78,7 +75,8 @@ local.properties
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -99,14 +97,35 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
 ### TextMate ###
 *.tmproj
 *.tmproject
 tmtags
 
-# End of https://www.gitignore.io/api/eclipse,textmate,macos
+### VisualStudioCode ###
+.vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+# !.vscode/*.code-snippets
 
-### Personal Overrides ###
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,textmate,visualstudiocode,macos
 
 # excluding bin is overzealous, IMO
 !bin/

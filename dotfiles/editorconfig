@@ -18,6 +18,10 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 
 # Python uses four spaces
+[*.rs]
+indent_size = 4
+
+# Python uses four spaces
 [*.py]
 indent_size = 4
 

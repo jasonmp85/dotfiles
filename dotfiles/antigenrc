@@ -6,14 +6,14 @@ antigen use oh-my-zsh
 # antigen bundle battery
 # antigen bundle bgnotify
 # antigen bundle bundler
-# antigen bundle chruby
 # antigen bundle colored-man-pages
 # antigen bundle common-aliases
+# antigen bundle chruby
 # antigen bundle dash
 # antigen bundle dotenv
 # antigen bundle emoji
 # antigen bundle extract
-# antigen bundle gem
+# antigen bundel gem
 # antigen bundle git
 # antigen bundle git-extras
 # antigen bundle globalias
