@@ -4,7 +4,7 @@
 	useconfigonly = true
 
 [credential]
-	helper = 
+	helper =
 
 [core]
 	autocrlf = input
@@ -56,7 +56,7 @@
 
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+	trustExitCode = true
 
 [merge]
 	tool = Kaleidoscope
@@ -67,6 +67,7 @@
 
 [difftool]
 	prompt = false
+	trustExitCode = true
 
 [mergetool]
 	prompt = false
