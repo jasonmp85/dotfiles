@@ -35,8 +35,11 @@ alias ku='kubectl'
 source "${HOME}/.config/op/plugins.sh"
 source "${HOME}/.cargo/env"
 
-autoload -U compinit
-compinit -u
+# Docker CLI completions
+fpath=(/Users/jason.petersen/.docker/completions $fpath)
+
+autoload -Uz compinit
+compinit
 
 # opam configuration
 [[ ! -r /Users/jason/.opam/opam-init/init.zsh ]] || source /Users/jason/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
