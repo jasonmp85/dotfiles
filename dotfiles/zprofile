@@ -63,5 +63,7 @@ export PATH="$(brew --prefix)/opt/postgresql@16/bin:${PATH}"
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}"
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
+export PATH="$HOME/.local/bin${PATH+:$PATH}"
 [[ -r "$HOME/.privilegesalias" ]] && source "$HOME/.privilegesalias"
+
 path=(/opt/dogbrew/shims/bin /opt/dogbrew/bin ${${path:#/opt/dogbrew/shims/bin}:#/opt/dogbrew/bin}); fpath=(/opt/dogbrew/share/zsh/site-functions ${fpath:#/opt/dogbrew/share/zsh/site-functions}); case ":${MANPATH-}:" in *:'/opt/dogbrew/share/man':*) ;; *) export MANPATH='/opt/dogbrew/share/man':${MANPATH-} ;; esac # dogbrew shell setup

@@ -35,6 +35,11 @@ alias ku='kubectl'
 source "${HOME}/.config/op/plugins.sh"
 source "${HOME}/.cargo/env"
 
+export PYENV_ROOT="$HOME/.pyenv"
+if (( $+commands[pyenv] )); then
+  eval "$(pyenv init - zsh)"
+fi
+
 # Docker CLI completions
 fpath=(/Users/jason.petersen/.docker/completions $fpath)
 
