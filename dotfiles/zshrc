@@ -41,7 +41,5 @@ fpath=(/Users/jason.petersen/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 
-# opam configuration
-[[ ! -r /Users/jason/.opam/opam-init/init.zsh ]] || source /Users/jason/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 path=(/opt/dogbrew/shims/bin /opt/dogbrew/bin ${${path:#/opt/dogbrew/shims/bin}:#/opt/dogbrew/bin}); fpath=(/opt/dogbrew/share/zsh/site-functions ${fpath:#/opt/dogbrew/share/zsh/site-functions}); case ":${MANPATH-}:" in *:'/opt/dogbrew/share/man':*) ;; *) export MANPATH='/opt/dogbrew/share/man':${MANPATH-} ;; esac # dogbrew shell setup
