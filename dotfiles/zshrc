@@ -25,11 +25,6 @@ if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
 fi
 
-manp ()
-{(
-    set -o pipefail;
-    gman -Tpdf "$@" | open -fa Preview
-)}
 alias ush='ssh -F/dev/null'
 alias bb='bbedit'
 alias ku='kubectl'
