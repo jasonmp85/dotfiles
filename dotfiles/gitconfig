@@ -11,6 +11,8 @@
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less -+x1,5
 	whitespace = tabwidth=4
+	fsmonitor = true
+	untrackedCache = true
 
 [color]
 	ui = true
@@ -74,3 +76,5 @@
 
 [diff]
 	tool = Kaleidoscope
+[feature]
+  manyFiles = true
