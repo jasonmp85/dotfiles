@@ -317,7 +317,6 @@ antigen bundles <<EOBUNDLES
   gitignore
   helm
   kind
-  kubernetes
   kubectl
   macos
   man
