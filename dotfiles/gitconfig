@@ -1,7 +1,17 @@
 [user]
 	name = Jason Petersen
-	email = jason@ptrsn.io
+	email = jason.petersen@datadoghq.com
 	useconfigonly = true
+
+[include]
+	path = ~/.config/datadog/git/config
+
+[includeIf "hasconfig:remote.*.url:git@github.com:jasonmp85/**"]
+	path = ~/.gitconfig-personal
+[includeIf "hasconfig:remote.*.url:https://github.com/jasonmp85/**"]
+	path = ~/.gitconfig-personal
+[includeIf "hasconfig:remote.*.url:ssh://git@github.com/jasonmp85/**"]
+	path = ~/.gitconfig-personal
 
 [credential]
 	helper =
