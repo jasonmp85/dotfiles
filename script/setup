@@ -32,7 +32,7 @@ while IFS= read -r -d '' dotfile; do
     continue
   fi
 
-  ln -sf "${source_path}" "${target_path}"
+  ln -s "${source_path}" "${target_path}"
 done < <(git -C "${dfdir}" ls-files -z)
 
 if (( status != 0 )); then
