@@ -4,6 +4,9 @@ COMPLETION_WAITING_DOTS="true"
 ZSH_DISABLE_COMPFIX="true"
 ANTIGEN_COMPINIT_OPTS="-u"
 
+# Use four-column tab stops for direct terminal output.
+[[ -t 1 ]] && tabs -4
+
 source "$(brew --prefix)/share/antigen/antigen.zsh"
 antigen init "${HOME}/.antigenrc"
 

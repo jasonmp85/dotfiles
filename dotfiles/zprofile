@@ -28,12 +28,6 @@ export VISUAL="${EDITOR}"
 export PAGER='less'
 
 #
-# Tab settings
-#
-
-tabs -4
-
-#
 # Language
 #
 
