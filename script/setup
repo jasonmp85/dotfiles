@@ -3,20 +3,40 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-basedir="$(git rev-parse --show-toplevel)"
+scriptdir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+basedir="$(cd -- "${scriptdir}/.." && pwd)"
 dfdir="${basedir}/dotfiles"
 
 >&2 echo "==> Linking dotfiles..."
 
-for dotfile in $(git -C ${dfdir} ls-files); do
+status=0
+
+while IFS= read -r -d '' dotfile; do
   dotdir="$(dirname "${dotfile}")"
+  source_path="${dfdir}/${dotfile}"
+  target_path="${HOME}/.${dotfile}"
 
   # TODO: copy permissions of dirname in git repo
   if [ "${dotdir}" != "." ]; then
     mkdir -p "${HOME}/.${dotdir}"
   fi
 
-  ln -sf "${dfdir}/${dotfile}" "${HOME}/.${dotfile}"
-done
+  if [[ -L "${target_path}" && "${target_path}" -ef "${source_path}" ]]; then
+    >&2 echo "==> Already linked: ${target_path}"
+    continue
+  fi
+
+  if [[ -e "${target_path}" || -L "${target_path}" ]]; then
+    >&2 echo "ERROR: Refusing to overwrite ${target_path}"
+    status=1
+    continue
+  fi
+
+  ln -sf "${source_path}" "${target_path}"
+done < <(git -C "${dfdir}" ls-files -z)
+
+if (( status != 0 )); then
+  exit "${status}"
+fi
 
 >&2 echo "==> Dotfiles linked!"
