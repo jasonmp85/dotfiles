@@ -36,6 +36,6 @@ indent_style = tab
 indent_size = 8
 
 # plutil -convert xml1 outputs tabs
-[{.plist,.terminal}]
+[*.{plist,terminal}]
 indent_style = tab
 indent_size  = 4
