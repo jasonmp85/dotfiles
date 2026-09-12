@@ -1,3 +1,4 @@
+Include ~/.config/datadog/git/ssh_config
 Host *
 IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
@@ -46,12 +47,6 @@ VerifyHostKeyDNS yes
 # Limit connection sharing to 60s
 ControlPersist 60s
 
-Host jasonmp85.github.com jasonmp85.gist.github.com jasonmp85.ssh.github.com jasonmp85.443.github.com github.com gist.github.com ssh.github.com 443.github.com
-IdentityFile ~/.ssh/id_jasonmp85@github.com.pub
-
-Host unobtanium
-IdentityFile ~/.ssh/id_jasonmp85@github.com.pub
-
 # -- github-keygen - end --
 
 # Match !host *github.com !exec "[ -e ~/.ssh/control-sockets/%C ]"
@@ -76,8 +71,6 @@ ControlMaster no
 Host *
 Protocol 2
 Compression no
-IdentitiesOnly yes
-IdentityFile ~/.ssh/id_ed25519.pub
 UseRoaming no
 # Hosts added later (identified by IP) will be hashed
 HashKnownHosts yes
@@ -102,7 +95,5 @@ ServerAliveInterval 300
 ServerAliveCountMax 2
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
-AddKeysToAgent yes
-UseKeychain yes
 KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512@openssh.com,curve25519-sha256,diffie-hellman-group16-sha512
 HostKeyAlgorithms rsa-sha2-512,rsa-sha2-256,ssh-ed25519
