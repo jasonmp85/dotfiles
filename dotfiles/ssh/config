@@ -18,9 +18,6 @@ User root
 
 Host calcite0 calcite1 calcite2
 User device-admin
-IdentityFile ~/.ssh/id_rsa.pub
-Ciphers aes256-ctr
-MACs hmac-sha1
 
 # -- github-keygen - begin --
 # Version: 1.304
@@ -51,21 +48,6 @@ ControlPersist 60s
 
 # Match !host *github.com !exec "[ -e ~/.ssh/control-sockets/%C ]"
 # RemoteForward 52698 localhost:52698
-
-# -- lower security for Azure DevOps (?)
-Host ssh.dev.azure.com vs-ssh.visualstudio.com
-User git
-# Enforce host checks
-StrictHostKeyChecking ask
-UserKnownHostsFile ~/.ssh/known_hosts_azure_devops
-IdentityFile ~/.ssh/id_japeter@microsoft.com@dev.azure.com.pub
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr
-MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512
-KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
-# Azure DevOps has not yet (2011-05) implemented SSHFP (RFC 4255)
-VerifyHostKeyDNS no
-# Azure DevOps doesn't support connection multiplexing
-ControlMaster no
 
 # https://github.com/drduh/config/blob/master/ssh_config
 Host *
