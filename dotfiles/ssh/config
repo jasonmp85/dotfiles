@@ -71,7 +71,6 @@ ControlMaster no
 Host *
 Protocol 2
 Compression no
-UseRoaming no
 # Hosts added later (identified by IP) will be hashed
 HashKnownHosts yes
 VisualHostKey yes
