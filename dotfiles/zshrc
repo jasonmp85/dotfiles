@@ -32,9 +32,6 @@ alias ush='ssh -F/dev/null'
 alias bb='bbedit'
 alias ku='kubectl'
 
-source "${HOME}/.config/op/plugins.sh"
-source "${HOME}/.cargo/env"
-
 export PYENV_ROOT="$HOME/.pyenv"
 if (( $+commands[pyenv] )); then
   eval "$(pyenv init - zsh)"
