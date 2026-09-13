@@ -5,6 +5,7 @@
 
 [include]
 	path = ~/.config/datadog/git/config
+	path = ~/.config/git/config.local
 
 [includeIf "hasconfig:remote.*.url:git@github.com:jasonmp85/**"]
 	path = ~/.gitconfig-personal

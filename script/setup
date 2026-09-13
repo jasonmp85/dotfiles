@@ -39,4 +39,12 @@ if (( status != 0 )); then
   exit "${status}"
 fi
 
+managed_git_hooks="/usr/local/dd/global_hooks"
+local_git_config="${HOME}/.config/git/config.local"
+
+if [[ -d "${managed_git_hooks}" ]]; then
+  mkdir -p "$(dirname "${local_git_config}")"
+  git config --file "${local_git_config}" core.hooksPath "${managed_git_hooks}"
+fi
+
 >&2 echo "==> Dotfiles linked!"
