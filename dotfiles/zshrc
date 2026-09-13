@@ -54,4 +54,9 @@ if (( $+commands[scfw] )); then
 fi
 # END SCFW MANAGED BLOCK
 
+# Trajectory - AI coding agent observability
+if [[ -d "$HOME/.trajectory/bin" ]]; then
+  path=("$HOME/.trajectory/bin" ${path:#"$HOME/.trajectory/bin"})
+fi
+
 path=(/opt/dogbrew/shims/bin /opt/dogbrew/bin ${${path:#/opt/dogbrew/shims/bin}:#/opt/dogbrew/bin}); fpath=(/opt/dogbrew/share/zsh/site-functions ${fpath:#/opt/dogbrew/share/zsh/site-functions}); case ":${MANPATH-}:" in *:'/opt/dogbrew/share/man':*) ;; *) export MANPATH='/opt/dogbrew/share/man':${MANPATH-} ;; esac # dogbrew shell setup
