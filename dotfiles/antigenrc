@@ -298,6 +298,8 @@ antigen use oh-my-zsh
 #   yii
 #   yii2
 #   yum
+#   git-auto-fetch
+#   git-prompt
 
 # postgres
 
@@ -311,8 +313,6 @@ antigen bundles <<EOBUNDLES
   docker
   docker-compose
   fzf
-  git-auto-fetch
-  git-prompt
   github
   gitignore
   helm
