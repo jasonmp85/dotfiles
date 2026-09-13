@@ -17,13 +17,8 @@ fi
 # Editors
 #
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='bbedit -w'
-else
-  export EDITOR='bbedit -w'
-fi
-
+# Preferred editor for local and remote sessions.
+export EDITOR='bbedit -w'
 export VISUAL="${EDITOR}"
 export PAGER='less'
 
@@ -42,6 +37,13 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
+# Initialize Homebrew from its standard Apple Silicon or Intel location.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 #
 # Less
 #
@@ -57,11 +59,14 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
-export PATH="/opt/homebrew/opt/postgresql@17/bin${PATH+:$PATH}"
+if [[ -n ${HOMEBREW_PREFIX:-} && -d ${HOMEBREW_PREFIX}/opt/postgresql@17/bin ]]; then
+  path=("${HOMEBREW_PREFIX}/opt/postgresql@17/bin" $path)
+fi
 
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}"
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+path=("${HOME}/.local/bin" $path)
 
-export PATH="$HOME/.local/bin${PATH+:$PATH}"
+if [[ -d "${HOME}/.trajectory/bin" ]]; then
+  path=("${HOME}/.trajectory/bin" $path)
+fi
+
 [[ -r "$HOME/.privilegesalias" ]] && source "$HOME/.privilegesalias"

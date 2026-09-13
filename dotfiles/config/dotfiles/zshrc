@@ -1,32 +1,40 @@
 # display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-ZSH_DISABLE_COMPFIX="true"
-ANTIGEN_COMPINIT_OPTS="-u"
+# Keep completion security checks enabled; current completion paths pass compaudit.
+ZSH_DISABLE_COMPFIX="false"
 
 # Use four-column tab stops for direct terminal output.
 [[ -t 1 ]] && tabs -4
 
-source "$(brew --prefix)/share/antigen/antigen.zsh"
-antigen init "${HOME}/.antigenrc"
+# Hide the local user in the prompt while retaining user@host over SSH.
+DEFAULT_USER="${USER}"
+
+# Docker Desktop installs its completion definitions here.
+if [[ -d "${HOME}/.docker/completions" ]]; then
+  fpath=("${HOME}/.docker/completions" $fpath)
+fi
+
+if [[ -n ${HOMEBREW_PREFIX:-} ]]; then
+  antidote_script="${HOMEBREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh"
+elif [[ -r /opt/homebrew/opt/antidote/share/antidote/antidote.zsh ]]; then
+  antidote_script=/opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+else
+  antidote_script=/usr/local/opt/antidote/share/antidote/antidote.zsh
+fi
+
+if [[ -r "${antidote_script}" ]]; then
+  source "${antidote_script}"
+  antidote load "${HOME}/.zsh_plugins.txt"
+else
+  print -u2 "warning: antidote is not installed; run script/bootstrap"
+fi
+unset antidote_script
 
 # Dir: current working directory
 prompt_dir() {
   prompt_segment blue $CURRENT_FG "$(shrink_path -f)"
 }
-
-export DEFAULT_USER="jason$(prompt_context(){})"
-
-#
-# Variables
-#
-
-# Load standard Homebrew shellenv into the shell session.
-# Load 'HOMEBREW_' prefixed variables only. Avoid loading 'PATH' related
-# variables as they are already handled in standard zsh configuration.
-if (( $+commands[brew] )); then
-  eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
-fi
 
 alias ush='ssh -F/dev/null'
 alias bb='bbedit'
@@ -34,16 +42,12 @@ alias ku='kubectl'
 
 export PYENV_ROOT="$HOME/.pyenv"
 if (( $+commands[pyenv] )); then
-  eval "$(pyenv init - zsh)"
+  eval "$(pyenv init -)"
 fi
 
-# Docker CLI completions
-fpath=(/Users/jason.petersen/.docker/completions $fpath)
-
-autoload -Uz compinit
-compinit
-
-# Trajectory - AI coding agent observability
-if [[ -d "$HOME/.trajectory/bin" ]]; then
-  path=("$HOME/.trajectory/bin" ${path:#"$HOME/.trajectory/bin"})
-fi
+# Search command history using the current buffer with the arrow keys.
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
