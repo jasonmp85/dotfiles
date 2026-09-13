@@ -43,20 +43,7 @@ fpath=(/Users/jason.petersen/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 
-# BEGIN SCFW MANAGED BLOCK
-if (( $+commands[scfw] )); then
-  alias npm="scfw run npm"
-  alias pip="scfw run pip"
-  alias poetry="scfw run poetry"
-  export SCFW_DD_AGENT_LOG_PORT="10365"
-  export SCFW_DD_LOG_LEVEL="ALLOW"
-  export SCFW_HOME="/Users/jason.petersen/.scfw"
-fi
-# END SCFW MANAGED BLOCK
-
 # Trajectory - AI coding agent observability
 if [[ -d "$HOME/.trajectory/bin" ]]; then
   path=("$HOME/.trajectory/bin" ${path:#"$HOME/.trajectory/bin"})
 fi
-
-path=(/opt/dogbrew/shims/bin /opt/dogbrew/bin ${${path:#/opt/dogbrew/shims/bin}:#/opt/dogbrew/bin}); fpath=(/opt/dogbrew/share/zsh/site-functions ${fpath:#/opt/dogbrew/share/zsh/site-functions}); case ":${MANPATH-}:" in *:'/opt/dogbrew/share/man':*) ;; *) export MANPATH='/opt/dogbrew/share/man':${MANPATH-} ;; esac # dogbrew shell setup

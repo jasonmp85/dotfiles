@@ -1,17 +1,3 @@
-## BEGIN -- workspaces cli
-## Generated content -- do not remove
-# NOTE: This is at the top to ensure that other user or generated settings do
-# not affect workspace connections.
-# If you'd like to make changes that apply to all workspaces, see the comments
-# in 00-common.conf alongside the included files below
-Include /Users/jason.petersen/.ssh/workspaces/*
-## END -- workspaces cli
-
-Include ~/.config/datadog/git/ssh_config
-
-Include /Users/jason.petersen/.colima/ssh_config
-
-
 Host *
 IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 

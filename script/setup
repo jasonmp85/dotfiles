@@ -11,12 +11,13 @@ dfdir="${basedir}/dotfiles"
 
 status=0
 
+install -d -m 700 "${HOME}/.ssh" "${HOME}/.ssh/control-sockets"
+
 while IFS= read -r -d '' dotfile; do
   dotdir="$(dirname "${dotfile}")"
   source_path="${dfdir}/${dotfile}"
   target_path="${HOME}/.${dotfile}"
 
-  # TODO: copy permissions of dirname in git repo
   if [ "${dotdir}" != "." ]; then
     mkdir -p "${HOME}/.${dotdir}"
   fi
@@ -34,6 +35,69 @@ while IFS= read -r -d '' dotfile; do
 
   ln -s "${source_path}" "${target_path}"
 done < <(git -C "${dfdir}" ls-files -z)
+
+ensure_wrapper() {
+  local target_path="$1"
+  local required_line="$2"
+  local initial_contents="$3"
+  shift 3
+
+  if [[ -L "${target_path}" ]]; then
+    local link_target
+    link_target="$(readlink "${target_path}")"
+    local known_legacy_target
+    local is_legacy=false
+
+    for known_legacy_target in "$@"; do
+      if [[ "${link_target}" == "${known_legacy_target}" ]]; then
+        is_legacy=true
+        break
+      fi
+    done
+
+    if [[ "${is_legacy}" == true ]]; then
+      unlink "${target_path}"
+    else
+      >&2 echo "ERROR: Refusing to replace unexpected symlink ${target_path} -> ${link_target}"
+      status=1
+      return
+    fi
+  fi
+
+  if [[ ! -e "${target_path}" ]]; then
+    printf '%s\n' "${initial_contents}" > "${target_path}"
+    >&2 echo "==> Created wrapper: ${target_path}"
+  elif grep -Fqx -- "${required_line}" "${target_path}"; then
+    >&2 echo "==> Already configured: ${target_path}"
+  else
+    >&2 echo "ERROR: Refusing to modify ${target_path}; add this line manually:"
+    >&2 printf '  %s\n' "${required_line}"
+    status=1
+  fi
+}
+
+ensure_wrapper \
+  "${HOME}/.zshrc" \
+  'source "$HOME/.config/dotfiles/zshrc"' \
+  'source "$HOME/.config/dotfiles/zshrc"' \
+  "${dfdir}/zshrc" \
+  'Repos/dotfiles/dotfiles/zshrc'
+
+ensure_wrapper \
+  "${HOME}/.zprofile" \
+  'source "$HOME/.config/dotfiles/zprofile"' \
+  'source "$HOME/.config/dotfiles/zprofile"' \
+  "${dfdir}/zprofile"
+
+ensure_wrapper \
+  "${HOME}/.ssh/config" \
+  'Include ~/.config/dotfiles/ssh-config' \
+  $'Include ~/.config/datadog/git/ssh_config\n\nInclude ~/.colima/ssh_config\n\nInclude ~/.config/dotfiles/ssh-config' \
+  "${dfdir}/ssh/config"
+
+if [[ -f "${HOME}/.ssh/config" ]]; then
+  chmod 600 "${HOME}/.ssh/config"
+fi
 
 if (( status != 0 )); then
   exit "${status}"
