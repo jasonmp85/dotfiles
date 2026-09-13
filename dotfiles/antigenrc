@@ -2,6 +2,7 @@
 antigen use oh-my-zsh
 
 # disabled until I'm actively using these pieces of software
+#   kind
 #   1password
 #   adb
 #   ag
@@ -223,6 +224,7 @@ antigen use oh-my-zsh
 #   rsync
 #   rtx
 #   ruby
+#   rust
 #   rvm
 #   safe-paste
 #   salt
@@ -316,11 +318,9 @@ antigen bundles <<EOBUNDLES
   github
   gitignore
   helm
-  kind
   kubectl
   macos
   man
-  rust
   shrink-path
   thefuck
   urltools
