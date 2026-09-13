@@ -1,11 +1,6 @@
-#################
-# Common Settings
-#################
-
-# This file is the top-most EditorConfig file
+# This is the top-most EditorConfig file.
 root = true
 
-# All Files
 [*]
 charset = utf-8
 indent_style = space
@@ -13,29 +8,42 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# Markdown Files
+# gofmt uses tabs for indentation.
+[*.go]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+
+# Preserve Markdown hard line breaks.
 [*.md]
 trim_trailing_whitespace = false
 
-# Python uses four spaces
+# Rust uses four spaces.
 [*.rs]
 indent_size = 4
 
-# Python uses four spaces
+# Python uses four spaces.
 [*.py]
 indent_size = 4
 
-# Make _requires_ tabs
-[{GNUmakefile,GNUmakefile.*,Makefile,Makefile.*,*.mk,}]
+# Make recipes require tabs.
+[{GNUmakefile,GNUmakefile.*,Makefile,Makefile.*,*.mk}]
 indent_style = tab
-indent_size = 4
+indent_size = tab
+tab_width = 4
 
-# git-config --add uses tabs; Linus insists they are eight-wide
-[.gitconfig]
+# git config writes tabs and conventionally displays them eight columns wide.
+[{.gitconfig,gitconfig,gitconfig-*}]
 indent_style = tab
-indent_size = 8
+indent_size = tab
+tab_width = 8
 
-# plutil -convert xml1 outputs tabs
+# plutil -convert xml1 outputs tabs.
 [*.{plist,terminal}]
 indent_style = tab
-indent_size  = 4
+indent_size = tab
+tab_width = 4
+
+# rapid.json conventionally uses four spaces.
+[rapid.json]
+indent_size = 4
