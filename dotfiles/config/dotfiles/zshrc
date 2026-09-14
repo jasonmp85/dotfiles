@@ -10,6 +10,10 @@ ZSH_DISABLE_COMPFIX="false"
 # Hide the local user in the prompt while retaining user@host over SSH.
 DEFAULT_USER="${USER}"
 
+# Keep Git-aware prompts fast in monorepos. Explicit `git status` still shows
+# untracked files; only the prompt's recursive untracked-file scan is skipped.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 # Docker Desktop installs its completion definitions here.
 if [[ -d "${HOME}/.docker/completions" ]]; then
   fpath=("${HOME}/.docker/completions" $fpath)
