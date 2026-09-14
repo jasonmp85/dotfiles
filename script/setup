@@ -7,6 +7,11 @@ scriptdir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 basedir="$(cd -- "${scriptdir}/.." && pwd)"
 dfdir="${basedir}/dotfiles"
 
+if ! git -C "${dfdir}" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  >&2 echo "ERROR: ${basedir} is not a Git worktree. Clone the repository before running setup."
+  exit 1
+fi
+
 >&2 echo "==> Linking dotfiles..."
 
 status=0
@@ -34,6 +39,7 @@ while IFS= read -r -d '' dotfile; do
   fi
 
   ln -s "${source_path}" "${target_path}"
+  >&2 echo "==> Linked: ${target_path}"
 done < <(git -C "${dfdir}" ls-files -z)
 
 ensure_wrapper() {
@@ -95,7 +101,7 @@ ensure_wrapper \
   $'Include ~/.config/datadog/git/ssh_config\n\nInclude ~/.colima/ssh_config\n\nInclude ~/.config/dotfiles/ssh-config' \
   "${dfdir}/ssh/config"
 
-if [[ -f "${HOME}/.ssh/config" ]]; then
+if [[ -f "${HOME}/.ssh/config" && ! -L "${HOME}/.ssh/config" ]]; then
   chmod 600 "${HOME}/.ssh/config"
 fi
 
