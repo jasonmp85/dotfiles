@@ -1,14 +1,17 @@
-tap 'homebrew/autoupdate'
-tap 'homebrew/test-bot'
+tap 'domt4/autoupdate'
 brew 'ack'
 brew 'antidote'
+brew 'colima'
 brew 'colormake'
 brew 'diff-so-fancy'
+brew 'direnv'
+brew 'docker'
 brew 'docker-clean'
+brew 'docker-compose'
 brew 'fd'
 brew 'ffmpeg'
-brew 'fortune'
 brew 'fzf'
+brew 'gh'
 brew 'git'
 brew 'git-extras'
 brew 'github-keygen'
@@ -18,39 +21,32 @@ brew 'jq'
 brew 'mas'
 brew 'pipx'
 brew 'pyenv'
-brew 'rmate'
+brew 'ripgrep'
 brew 'rustup'
 brew 'thefuck'
 brew 'tree'
 brew 'uv'
 brew 'virtualenv'
 brew 'watch'
+brew 'yq'
 brew 'yt-dlp'
 brew 'zoxide'
 brew 'zsh'
 cask '1password'
 cask '1password-cli'
-cask 'adobe-acrobat-reader'
 cask 'alfred'
-cask 'backblaze'
 cask 'bbedit'
+cask 'claude-code@latest'
+cask 'codex'
 cask 'deckset'
-cask 'discord'
-cask 'eclipse-cpp'
-cask 'eqmac'
 cask 'firefox'
-cask 'focus'
 cask 'font-source-code-pro'
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-sans-3'
 cask 'font-source-serif-4'
-cask 'handbrake'
 cask 'istat-menus'
 cask 'kaleidoscope'
-cask 'keep-it'
-cask 'logitech-options'
 cask 'signal'
-cask 'textmate'
 cask 'visual-studio-code'
 cask 'vlc'
 mas '1Blocker', id: 1365531024
@@ -58,23 +54,11 @@ mas '1Password for Safari', id: 1569813296
 mas '24 Hour Wallpaper', id: 1226087575
 mas 'Actions', id: 1586435171
 mas 'Adobe Lightroom', id: 1451544217
-mas 'Agenda', id: 1287445660
-mas 'Cardhop', id: 1290358394
 mas 'Codye', id: 1516894961
-mas 'Data Jar', id: 1453273600
-mas 'Deliveries', id: 290986013
-mas 'Drafts', id: 1435957248
 mas 'Fantastical', id: 975937182
-mas 'GarageBand', id: 682658836
-mas 'Goodnotes', id: 1444383602
 mas 'GrandPerspective', id: 1111570163
-mas 'Grocery', id: 1195676848
-mas 'HomeLog', id: 1584408332
-mas 'iMovie', id: 408981434
 mas 'Ivory', id: 6444602274
-mas 'Just Focus', id: 1142151959
 mas 'Keynote', id: 409183694
-mas 'Logger', id: 1611554653
 mas 'Magnet', id: 441258766
 mas 'Microsoft Excel', id: 462058435
 mas 'Microsoft PowerPoint', id: 462062816
@@ -83,11 +67,8 @@ mas 'MQTT Explorer', id: 1455214828
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Pixelmator Pro', id: 1289583905
-mas 'Shortery', id: 1594183810
-mas 'Speedtest', id: 1153157709
-mas 'Streaks', id: 963034692
 mas 'Things', id: 904280696
-mas 'Tot', id: 1491071483
+mas 'WhatsApp', id: 310633997
 mas 'Xcode', id: 497799835
 vscode 'editorconfig.editorconfig'
 vscode 'ms-azuretools.vscode-docker'
