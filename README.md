@@ -11,12 +11,14 @@ script/bootstrap
 ```
 
 Bootstrap installs the packages and applications in `dotfiles/Brewfile`, then
-runs `script/setup`. Some App Store applications may require signing in first.
-The optional `Black Sun.terminal` profile can be opened manually to import it
-into Terminal.
+runs `script/setup`. Some App Store applications may require signing in first,
+Git commit signing and SSH use 1Password. The optional `Black Sun.terminal`
+profile can be opened manually to import it into Terminal; its Powerline font
+is installed by the Brewfile.
 
 Run `script/setup` by itself to install newly added links or repair missing
-ones. It is safe to run repeatedly and refuses to overwrite unexpected files.
+ones. It is safe to run repeatedly, must be run from a Git clone or worktree,
+and refuses to overwrite unexpected files.
 
 ## Managed wrappers
 
