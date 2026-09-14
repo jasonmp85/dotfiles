@@ -46,7 +46,6 @@ cask 'font-source-serif-4'
 cask 'istat-menus'
 cask 'kaleidoscope'
 cask 'signal'
-cask 'visual-studio-code'
 cask 'vlc'
 mas '1Blocker', id: 1365531024
 mas '1Password for Safari', id: 1569813296
