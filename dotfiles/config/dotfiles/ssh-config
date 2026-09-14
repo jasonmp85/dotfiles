@@ -1,79 +1,48 @@
-Host *
-IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
 Host lodestone carbide obsidian garnet
-User jason
+    User jason
 
 Host lodestone
-Port 13122
+    Port 13122
 
 Host hass
-Port 13122
-User root
+    Port 13122
+    User root
 
 Host hematite
-Port 22222
-User root
+    Port 22222
+    User root
 
 Host calcite0 calcite1 calcite2
-User device-admin
+    User device-admin
 
-# -- github-keygen - begin --
-# Version: 1.304
+Host ddoghq.github.com
+    HostName github.com
 
-Host gist.github.com *.gist.github.com
-HostName gist.github.com
+Host github.com ddoghq.github.com
+    User git
+    PubkeyAuthentication yes
+    PasswordAuthentication no
+    KbdInteractiveAuthentication no
+    PreferredAuthentications publickey
 
-# See https://help.github.com/articles/using-ssh-over-the-https-port
-Host ssh.github.com *.ssh.github.com 443.github.com *.443.github.com
-HostName ssh.github.com
-Port 443
+    StrictHostKeyChecking yes
+    UserKnownHostsFile ~/.config/dotfiles/github-known-hosts
+    VerifyHostKeyDNS no
+    UpdateHostKeys no
 
-# This rule must stay below more specific host rules to avoid
-# "HostName" to be set to github.com
-Host *.github.com
-HostName github.com
+    ForwardAgent no
+    ForwardX11 no
+    PermitLocalCommand no
+    RequestTTY no
 
-Host github.com gist.github.com ssh.github.com 443.github.com *.github.com *.gist.github.com *.ssh.github.com *.443.github.com
-User git
-# Enforce host checks
-StrictHostKeyChecking yes
-UserKnownHostsFile ~/.ssh/known_hosts_github
-VerifyHostKeyDNS yes
-# Limit connection sharing to 60s
-ControlPersist 60s
-
-# -- github-keygen - end --
-
-# Match !host *github.com !exec "[ -e ~/.ssh/control-sockets/%C ]"
-# RemoteForward 52698 localhost:52698
-
-# https://github.com/drduh/config/blob/master/ssh_config
 Host *
-Protocol 2
-Compression no
-# Hosts added later (identified by IP) will be hashed
-HashKnownHosts yes
-VisualHostKey yes
-PasswordAuthentication no
-ChallengeResponseAuthentication no
-StrictHostKeyChecking ask
-VerifyHostKeyDNS yes
-# Enable only the required authentication
-PubkeyAuthentication yes
-PreferredAuthentications publickey
-ForwardAgent no
-PermitLocalCommand no
-# Trust no one, especially the remote
-ForwardX11 no
-ForwardX11Trusted no
-# Share connections for ten minutes
-ControlMaster auto
-ControlPath ~/.ssh/control-sockets/%C
-ControlPersist 600
-ServerAliveInterval 300
-ServerAliveCountMax 2
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com
-MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
-KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512@openssh.com,curve25519-sha256,diffie-hellman-group16-sha512
-HostKeyAlgorithms rsa-sha2-512,rsa-sha2-256,ssh-ed25519
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+    HashKnownHosts yes
+
+    ControlMaster auto
+    ControlPath ~/.ssh/control-sockets/%C
+    ControlPersist 10m
+
+    ServerAliveInterval 5m
+    ServerAliveCountMax 2
