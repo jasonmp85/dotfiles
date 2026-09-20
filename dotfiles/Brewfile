@@ -29,6 +29,7 @@ cask 'bbedit'
 cask 'claude-code@latest'
 cask 'codex'
 cask 'deckset'
+cask 'eqmac'
 cask 'firefox'
 cask 'font-source-code-pro'
 cask 'font-source-code-pro-for-powerline'
@@ -36,6 +37,8 @@ cask 'font-source-sans-3'
 cask 'font-source-serif-4'
 cask 'istat-menus'
 cask 'kaleidoscope'
+cask 'logi-options+'
+cask 'monitorcontrol'
 cask 'signal'
 mas '1Blocker', id: 1365531024
 mas '1Password for Safari', id: 1569813296
@@ -43,7 +46,9 @@ mas '24 Hour Wallpaper', id: 1226087575
 mas 'Adobe Lightroom', id: 1451544217
 mas 'Codye', id: 1516894961
 mas 'Fantastical', id: 975937182
+mas 'GarageBand', id: 682658836
 mas 'GrandPerspective', id: 1111570163
+mas 'iMovie', id: 408981434
 mas 'Infuse', id: 1136220934
 mas 'Ivory', id: 6444602274
 mas 'Keynote', id: 361285480
