@@ -14,8 +14,6 @@ ohmyzsh/ohmyzsh path:plugins/direnv
 ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/docker-compose
 ohmyzsh/ohmyzsh path:plugins/fzf
-ohmyzsh/ohmyzsh path:plugins/kubectl
-ohmyzsh/ohmyzsh path:plugins/man
 ohmyzsh/ohmyzsh path:plugins/shrink-path
 ohmyzsh/ohmyzsh path:plugins/zoxide
 
