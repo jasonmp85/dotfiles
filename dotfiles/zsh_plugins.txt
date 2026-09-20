@@ -19,6 +19,11 @@ ohmyzsh/ohmyzsh path:plugins/zoxide
 
 ohmyzsh/ohmyzsh path:themes/agnoster.zsh-theme
 
+# use-omz defers compinit to the first prompt, but fzf-tab must load after it
+# and before any plugin that wraps widgets, so run it here.
+$HOME/.config/dotfiles/compinit.zsh
+Aloxaf/fzf-tab
+
 # These must remain last and in this order.
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
