@@ -14,10 +14,7 @@ ohmyzsh/ohmyzsh path:plugins/direnv
 ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/docker-compose
 ohmyzsh/ohmyzsh path:plugins/fzf
-ohmyzsh/ohmyzsh path:plugins/shrink-path
 ohmyzsh/ohmyzsh path:plugins/zoxide
-
-ohmyzsh/ohmyzsh path:themes/agnoster.zsh-theme
 
 # use-omz defers compinit to the first prompt, but fzf-tab must load after it
 # and before any plugin that wraps widgets, so run it here.

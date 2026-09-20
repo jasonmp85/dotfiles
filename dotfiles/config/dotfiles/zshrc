@@ -7,13 +7,6 @@ ZSH_DISABLE_COMPFIX="false"
 # Use four-column tab stops for direct terminal output.
 [[ -t 1 ]] && tabs -4
 
-# Hide the local user in the prompt while retaining user@host over SSH.
-DEFAULT_USER="${USER}"
-
-# Keep Git-aware prompts fast in monorepos. Explicit `git status` still shows
-# untracked files; only the prompt's recursive untracked-file scan is skipped.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Docker Desktop installs its completion definitions here.
 if [[ -d "${HOME}/.docker/completions" ]]; then
   fpath=("${HOME}/.docker/completions" $fpath)
@@ -35,11 +28,6 @@ else
 fi
 unset antidote_script
 
-# Dir: current working directory
-prompt_dir() {
-  prompt_segment blue $CURRENT_FG "$(shrink_path -f)"
-}
-
 alias ush='ssh -F/dev/null'
 alias bb='bbedit'
 alias ku='kubectl'
@@ -58,3 +46,6 @@ bindkey '^[OB' history-substring-search-down
 
 # 1Password shell plugins (generated per machine by `op plugin init`).
 [[ -r "$HOME/.config/op/plugins.sh" ]] && source "$HOME/.config/op/plugins.sh"
+
+# Prompt; keep last so it takes over from anything the plugins set.
+(( $+commands[starship] )) && eval "$(starship init zsh)"

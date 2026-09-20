@@ -1,0 +1,6 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Abbreviate parent directories fish-style (~/R/dotfiles), as shrink-path did.
+[directory]
+truncation_length = 1
+fish_style_pwd_dir_length = 1
