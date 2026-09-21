@@ -43,7 +43,7 @@
 	whitespace = red reverse
 
 [log]
-	date = local
+	date = format-local:%a %b %d %H:%M:%S %Y %z
 
 [rerere]
 	enabled = true
