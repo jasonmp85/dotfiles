@@ -74,6 +74,8 @@ brew "python@3.12"
 brew "python@3.13"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Rust toolchain installer
+brew "rustup"
 # Command-line interface for running and interacting with Temporal Server and UI
 brew "temporal"
 # Terraform version manager inspired by rbenv
