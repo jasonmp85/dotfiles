@@ -133,3 +133,5 @@ go "honnef.co/go/tools/cmd/staticcheck"
 go "golang.org/x/tools/cmd/stringer"
 go "github.com/DataDog/dd-trace-go/tools/v2fix"
 go "github.com/xuri/xgen/cmd/xgen"
+# Internet file retriever
+brew "wget"
