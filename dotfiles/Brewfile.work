@@ -1,0 +1,165 @@
+instance_eval(File.read(File.join(__dir__, "Brewfile.core")))
+
+tap "microsoft/mssql-release", "https://github.com/Microsoft/homebrew-mssql-release", trusted: true
+tap "peonping/tap", "https://github.com/PeonPing/homebrew-tap", trusted: true
+tap "petere/postgresql", trusted: true
+
+# Search tool like grep, but optimized for programmers
+brew "ack"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Securely store and access AWS credentials in development environments
+brew "aws-vault"
+# Library for command-line editing
+brew "readline"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# YAML Parser
+brew "libyaml"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
+# User-friendly launcher for Bazel
+brew "bazelisk"
+# Memory upgrade for your coding agent
+brew "beads"
+# Parser generator
+brew "bison"
+# Format bazel BUILD files with a standard convention
+brew "buildifier"
+# Ruby environment tool
+brew "chruby"
+# Statistics utility to count lines of code
+brew "cloc"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Suite of command-line tools for converting to and working with CSV
+brew "csvkit"
+# TIFF library and utilities
+brew "libtiff"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
+# Brokered message queue optimized for performance
+brew "fq"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
+# Libraries to talk to Microsoft SQL Server and Sybase databases
+brew "freetds"
+# GNU compiler collection
+brew "gcc"
+# Shell script to install any Go version
+brew "gimme"
+# Small git utilities
+brew "git-extras"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# Kubernetes package manager
+brew "helm"
+# Generic command-line non-JVM Apache Kafka producer and consumer
+brew "kcat"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Utility for directing compilation
+brew "make"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Development kit for the Java programming language
+brew "openjdk@21"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Object-relational database system
+brew "postgresql@17"
+# Object-relational database system
+brew "postgresql@18"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Python version management
+brew "pyenv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Ruby version manager
+brew "rbenv"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Install Ruby, JRuby, Rubinius, TruffleRuby, or mruby
+brew "ruby-install"
+# Command-line interface for running and interacting with Temporal Server and UI
+brew "temporal"
+# Terraform version manager inspired by rbenv
+brew "tfenv"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Tool for creating isolated virtual python environments
+brew "virtualenv"
+# Internet file retriever
+brew "wget"
+# ODBC Driver for Microsoft(R) SQL Server(R)
+brew "microsoft/mssql-release/msodbcsql18"
+# Sound effects and desktop notifications for AI coding agents
+brew "peonping/tap/peon-ping"
+# PostgreSQL database-cluster manager
+brew "petere/postgresql/postgresql-common"
+
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
+# Go (golang) IDE
+cask "goland"
+# Intercept, modify, replay, save HTTP/S traffic
+cask "mitmproxy"
+
+vscode "datadog.datadog-vscode"
+
+go "github.com/fiatjaf/cbor"
+go "github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod"
+go "github.com/DataDog/dd-go/domains/langtools/apps/ddgo"
+go "github.com/DataDog/dd-go/domains/eee/apps/ddlint"
+go "github.com/go-delve/delve/cmd/dlv"
+go "github.com/mailru/easyjson/easyjson"
+go "github.com/daixiang0/gci"
+go "github.com/axw/gocov/gocov"
+go "github.com/wadey/gocovmerge"
+go "golang.org/x/tools/cmd/goimports"
+go "golang.org/x/tools/gopls"
+go "github.com/securego/gosec/cmd/gosec"
+go "github.com/DataDog/dd-go/domains/gotools/gotasks"
+go "gotest.tools/gotestsum"
+go "github.com/golang/mock/mockgen"
+go "github.com/goware/modvendor"
+go "github.com/tinylib/msgp"
+go "google.golang.org/open2opaque"
+go "github.com/DataDog/orchestrion"
+go "github.com/pointlander/peg"
+go "github.com/DataDog/dd-colbuf/cmd/protoc-gen-colbuf"
+go "google.golang.org/protobuf/cmd/protoc-gen-go"
+go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+go "github.com/DataDog/dd-source/rules/proto/libs/protogen/plugin/go_grpc_errors/protoc-gen-go-grpc-errors"
+go "github.com/gogo/protobuf/protoc-gen-gogofaster"
+go "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
+go "github.com/fullstorydev/grpchan/cmd/protoc-gen-grpchan"
+go "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
+go "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger"
+go "github.com/protocolbuffers/protoscope/cmd/protoscope"
+go "github.com/DataDog/dd-source/domains/language_tools/apps/sbom-event"
+go "honnef.co/go/tools/cmd/staticcheck"
+go "golang.org/x/tools/cmd/stringer"
+go "github.com/DataDog/dd-trace-go/tools/v2fix"
+go "github.com/xuri/xgen/cmd/xgen"

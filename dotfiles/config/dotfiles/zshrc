@@ -47,5 +47,8 @@ bindkey '^[OB' history-substring-search-down
 # 1Password shell plugins (generated per machine by `op plugin init`).
 [[ -r "$HOME/.config/op/plugins.sh" ]] && source "$HOME/.config/op/plugins.sh"
 
+# Per-machine overrides (e.g. HOMEBREW_BUNDLE_FILE), untracked and local only.
+[[ -r "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
 # Prompt; keep last so it takes over from anything the plugins set.
 (( $+commands[starship] )) && eval "$(starship init zsh)"

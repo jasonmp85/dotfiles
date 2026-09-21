@@ -4,7 +4,7 @@ set -euo pipefail
 
 scriptdir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 basedir="$(cd -- "${scriptdir}/.." && pwd)"
-brewfile="${basedir}/dotfiles/Brewfile"
+brewfile="${HOMEBREW_BUNDLE_FILE:-${basedir}/dotfiles/Brewfile.core}"
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
   >&2 echo "ERROR: This bootstrap script supports macOS only."
@@ -16,7 +16,7 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
->&2 echo "==> Installing applications and command-line tools..."
+>&2 echo "==> Installing applications and command-line tools from ${brewfile}..."
 brew bundle install --file="${brewfile}"
 
 "${scriptdir}/setup"
