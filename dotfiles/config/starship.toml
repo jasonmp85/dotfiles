@@ -1,6 +1,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Allow directory scans in large repos to exceed the default 30 ms.
+scan_timeout = 1000
+command_timeout = 2000
+
 # Abbreviate parent directories fish-style (~/R/dotfiles), as shrink-path did.
 [directory]
 truncation_length = 1
 fish_style_pwd_dir_length = 1
+
+[python]
+pyenv_version_name = true
