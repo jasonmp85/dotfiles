@@ -63,6 +63,7 @@ if [[ -n ${HOMEBREW_PREFIX:-} && -d ${HOMEBREW_PREFIX}/opt/postgresql@17/bin ]];
   path=("${HOMEBREW_PREFIX}/opt/postgresql@17/bin" $path)
 fi
 
+# uv-managed Python interpreters and command-line tools.
 path=("${HOME}/.local/bin" $path)
 
 if [[ -d "${HOME}/.trajectory/bin" ]]; then

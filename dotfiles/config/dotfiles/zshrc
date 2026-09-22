@@ -32,11 +32,6 @@ alias ush='ssh -F/dev/null'
 alias bb='bbedit'
 alias ku='kubectl'
 
-export PYENV_ROOT="$HOME/.pyenv"
-if (( $+commands[pyenv] )); then
-  eval "$(pyenv init -)"
-fi
-
 # Search command history using the current buffer with the arrow keys.
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 bindkey '^[[A' history-substring-search-up

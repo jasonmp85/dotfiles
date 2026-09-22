@@ -51,6 +51,25 @@ targeting it (`--file=dotfiles/Brewfile.core`). `mas` entries can't be added
 via `brew bundle add` at all (Homebrew doesn't support it) — add those lines
 by hand.
 
+## Python
+
+Use uv to manage development Python interpreters and Python command-line tools.
+Homebrew may still install Python as a dependency of its own applications.
+
+After installing the Brewfile, set up the development interpreters:
+
+```sh
+uv python install 3.12
+uv python install 3.13 --default
+uv python pin --global 3.13
+```
+
+The shell puts `~/.local/bin` on `PATH`, where uv exposes `python`, `python3`,
+and the versioned commands. Install Python CLI tools with
+`uv tool install --python 3.13 <package>` and run project commands with
+`uv run`. Existing virtual environments must be recreated before removing
+the interpreter they reference. Integrations use `ddev`; dd-source uses `bzl`.
+
 ## Managed wrappers
 
 Most files under `dotfiles/` are linked directly into the home directory. The

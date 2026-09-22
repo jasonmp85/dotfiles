@@ -66,12 +66,6 @@ brew "postgresql@17"
 brew "postgresql@18"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
-# Python version management
-brew "pyenv"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
 # Rust toolchain installer
