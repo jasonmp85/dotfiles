@@ -16,6 +16,9 @@ ohmyzsh/ohmyzsh path:plugins/docker-compose
 ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/zoxide
 
+# Remind us when a typed command has an existing shell or Git alias.
+MichaelAquilina/zsh-you-should-use
+
 # use-omz defers compinit to the first prompt, but fzf-tab must load after it
 # and before any plugin that wraps widgets, so run it here.
 $HOME/.config/dotfiles/compinit.zsh
