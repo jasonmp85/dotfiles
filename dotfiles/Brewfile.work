@@ -129,3 +129,5 @@ go "github.com/DataDog/dd-trace-go/tools/v2fix"
 go "github.com/xuri/xgen/cmd/xgen"
 # Internet file retriever
 brew "wget"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
