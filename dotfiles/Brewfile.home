@@ -11,3 +11,5 @@ mas 'Big Walk', id: 6773484032
 brew "hf"
 # Web browser
 cask "firefox"
+# Embeddable SQL OLAP Database Management System
+brew "duckdb"
