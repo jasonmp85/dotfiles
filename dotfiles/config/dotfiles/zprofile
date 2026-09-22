@@ -44,6 +44,11 @@ elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+# Homebrew's rustup proxies select the toolchain from rust-toolchain.toml.
+if [[ -n ${HOMEBREW_PREFIX:-} && -d ${HOMEBREW_PREFIX}/opt/rustup/bin ]]; then
+  path=("${HOME}/.cargo/bin" "${HOMEBREW_PREFIX}/opt/rustup/bin" $path)
+fi
+
 #
 # Less
 #

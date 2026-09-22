@@ -70,6 +70,19 @@ and the versioned commands. Install Python CLI tools with
 `uv run`. Existing virtual environments must be recreated before removing
 the interpreter they reference. Integrations use `ddev`; dd-source uses `bzl`.
 
+## Rust
+
+The shell exposes Homebrew's rustup proxies and `~/.cargo/bin`.
+For dd-source, install the version and targets from its `rust-toolchain.toml`;
+rustup selects that toolchain automatically inside the checkout. For the
+current 1.95.0 pin:
+
+```sh
+rustup toolchain install 1.95.0 --profile default \
+  --target aarch64-apple-darwin,aarch64-unknown-linux-gnu,wasm32-wasip1,x86_64-unknown-linux-gnu
+rustup default 1.95.0
+```
+
 ## Managed wrappers
 
 Most files under `dotfiles/` are linked directly into the home directory. The
