@@ -1,3 +1,13 @@
 instance_eval(File.read(File.join(__dir__, "Brewfile.core")))
 
 cask 'aerial'
+# Discover, download, and run local LLMs
+cask "lm-studio"
+# AI agent toolkit
+brew "pi-coding-agent"
+
+mas 'Big Walk', id: 6773484032
+# Client library for huggingface.co hub
+brew "hf"
+# Web browser
+cask "firefox"
