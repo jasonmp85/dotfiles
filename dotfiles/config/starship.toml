@@ -4,7 +4,38 @@
 scan_timeout = 1000
 command_timeout = 2000
 
+# Keep language/runtime details and command duration together on the right.
+# The default left format ($all) excludes modules listed here.
+right_format = """
+$buf$bun$c$cmake$cobol$cpp$crystal$daml$dart$deno$dotnet\
+$elixir$elm$erlang$fennel$fortran$gleam$golang$gradle$haskell$haxe\
+$helm$java$julia$kotlin$lua$maven$mojo$nim$nodejs$ocaml$odin$opa\
+$perl$php$pulumi$purescript$python$quarto$raku$red$rlang$ruby$rust\
+$scala$solidity$swift$terraform$typst$vagrant$vlang$xmake$zig\
+$conda$guix_shell$meson$mise$nix_shell$pixi$spack$cmd_duration\
+"""
+
 # Abbreviate parent directories fish-style (~/R/dotfiles), as shrink-path did.
 [directory]
 truncation_length = 1
 fish_style_pwd_dir_length = 1
+
+[git_status]
+ahead = '↑${count}'
+behind = '↓${count}'
+diverged = '↑${ahead_count}↓${behind_count}'
+modified = '!${count}'
+staged = '+${count}'
+untracked = '?${count}'
+
+[package]
+disabled = true
+
+[status]
+disabled = false
+pipestatus = true
+
+[sudo]
+disabled = false
+format = '[sudo]($style) '
+style = 'bold yellow'
